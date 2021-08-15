@@ -1,4 +1,5 @@
 import { Component } from "react";
+import axios from "axios"
 
 export default class Registration extends Component {
 
@@ -15,11 +16,26 @@ export default class Registration extends Component {
     }
 
     handleChange = (event) => {
-        console.log("changed")
+        this.setState({
+            [event.target.name]: [event.target.value]
+        })
     }
 
     handleSubmit = (event) => {
-        console.log("submitted")
+        axios.post("https://localhost:3001/registrations", {
+            user: {
+                email: this.state.email,
+                username: this.state.username,
+                password: this.state.password,
+                password_confirmation: this.state.password_confirmation
+            }
+        }, {withCredentials: true})
+        .then(response => {
+            console.log("response", response)
+        })
+        .catch(error => {
+            console.log("error", error)
+        })
         event.preventDefault();
     }
 

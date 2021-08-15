@@ -51,6 +51,13 @@ export default class Registration extends Component {
                         value={this.state.email} 
                         onChange={this.handleChange}
                     />
+                   <label>username:</label>
+                   <input 
+                        type="text" 
+                        name="username" 
+                        value={this.state.username} 
+                        onChange={this.handleChange}
+                    />
                    <label>password:</label>
                    <input 
                         type="password" 

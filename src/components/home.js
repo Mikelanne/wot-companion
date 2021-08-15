@@ -1,10 +1,12 @@
+import Registration from "./auth/Registration"
+
 const Home = () => {
 
     return (
         <div>
             <h1>Welcome to your Wheel of Time Companion</h1>
             <h3>This is your spoiler free companion to Robert Jordan's Wheel of Time series.</h3>
-
+            <Registration />
         {/* form goes here for log in */}
         </div>
     )

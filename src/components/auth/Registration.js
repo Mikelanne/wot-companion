@@ -22,7 +22,7 @@ export default class Registration extends Component {
     }
 
     handleSubmit = (event) => {
-        axios.post("https://localhost:3001/registrations", {
+        axios.post("http://localhost:3001/registrations", {
             user: {
                 email: this.state.email,
                 username: this.state.username,

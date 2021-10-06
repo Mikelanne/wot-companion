@@ -6,7 +6,14 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
 
+        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    }
 
+    handleSuccessfulAuth(data){
+        // update parent component
+        this.props.history.push("/dashboard")
+        // I need to make that dashboard component
+        // or I need it to go somewhere else but I think dashboard is important
     }
 
     render() {
@@ -15,7 +22,7 @@ export default class Home extends Component {
                 <h1>Welcome to your Wheel of Time Companion</h1>
                 <h3>This is your spoiler free companion to Robert Jordan's Wheel of Time series.</h3>
                 <h1>Status: {this.props.loggedInStatus}</h1>
-                <Registration /> 
+                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/> 
             </div>
         )
     }

@@ -2,6 +2,7 @@ import './App.css'
 import CharactersContainer from './containers/charactersContainer'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Home from "./components/home"
+import Dashboard from './components/dashboard'
 import { Component } from 'react';
 
 export default class App extends Component {
@@ -25,8 +26,12 @@ export default class App extends Component {
                 render={props => (
                   <Home {... props} loggedInStatus={this.state.loggedInStatus} />
                 )}>
-                {/* <Home /> */}
               </Route>
+              <Route exact path={"/dashboard"}
+                render={props => (
+                  <Dashboard {... props} loggedInStatus={this.state.loggedInStatus} />
+                )}>
+                </Route>
             </Switch>
           </Router>
           {/* <CharactersContainer /> */}

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios"
 
-export default class Registration extends Component {
+export default class Login extends Component {
 
     constructor(props){
         super(props);
@@ -10,8 +10,7 @@ export default class Registration extends Component {
             email: "",
             username: "",
             password: "",
-            password_confirmation: "",
-            registrationErrors: ""
+            loginErrors: ""
         }
     }
 
@@ -22,12 +21,11 @@ export default class Registration extends Component {
     }
 
     handleSubmit = (event) => {
-        axios.post("http://localhost:3001/registrations", {
+        axios.post("http://localhost:3001/sessions", {
             user: {
                 email: this.state.email,
                 username: this.state.username,
                 password: this.state.password,
-                password_confirmation: this.state.password_confirmation
             }
         }, {withCredentials: true})
         .then(response => {

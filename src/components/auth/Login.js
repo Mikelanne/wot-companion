@@ -29,17 +29,16 @@ export default class Login extends Component {
             }
         }, {withCredentials: true})
         .then(response => {
-            console.log("res from login", response);
-            // if (response.data.status === 'created') {
-            //     this.props.handleSuccessfulAuth(response.data);
-            // } else {
-            //    console.log("didn't work") 
+            if (response.data.logged_in) {
+                this.props.handleSuccessfulAuth(response.data);
+            } else {
+               console.log("didn't work") 
                     // this will need to be edited to actually do something
                     // use registration error part of the state
-        //     }
-        // })
-        // .catch(error => {
-        //     console.log("error", error)
+            }
+        })
+        .catch(error => {
+            console.log("error", error)
         })
         event.preventDefault();
     }

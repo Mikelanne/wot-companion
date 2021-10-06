@@ -23,7 +23,7 @@ export default class Home extends Component {
                 <h3>This is your spoiler free companion to Robert Jordan's Wheel of Time series.</h3>
                 <h1>Status: {this.props.loggedInStatus}</h1>
                 <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/> 
-                <Login/>
+                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
             </div>
         )
     }

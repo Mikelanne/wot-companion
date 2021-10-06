@@ -12,16 +12,19 @@ export default class Registration extends Component {
             password: "",
             password_confirmation: "",
             registrationErrors: ""
-        }
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event) => {
+    handleChange(event){
         this.setState({
             [event.target.name]: [event.target.value]
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit(event){
         axios.post("http://localhost:3001/registrations", {
             user: {
                 email: this.state.email,
@@ -31,13 +34,14 @@ export default class Registration extends Component {
             }
         }, {withCredentials: true})
         .then(response => {
-            if (response.data.status === 'created') {
-                this.props.handleSuccessfulAuth(response.data);
-            } else {
-               console.log("didn't work") 
-                    // this will need to be edited to actually do something
-                    // use registration error part of the state
-            }
+            console.log("resp from registration", response)
+            // if (response.data.status === 'created') {
+            //     this.props.handleSuccessfulAuth(response.data);
+            // } else {
+            //    console.log("didn't work") 
+            //         // this will need to be edited to actually do something
+            //         // use registration error part of the state
+            // }
         })
         .catch(error => {
             console.log("error", error)

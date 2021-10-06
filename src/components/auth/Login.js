@@ -29,16 +29,17 @@ export default class Login extends Component {
             }
         }, {withCredentials: true})
         .then(response => {
-            if (response.data.status === 'created') {
-                this.props.handleSuccessfulAuth(response.data);
-            } else {
-               console.log("didn't work") 
+            console.log("res from login", response);
+            // if (response.data.status === 'created') {
+            //     this.props.handleSuccessfulAuth(response.data);
+            // } else {
+            //    console.log("didn't work") 
                     // this will need to be edited to actually do something
                     // use registration error part of the state
-            }
-        })
-        .catch(error => {
-            console.log("error", error)
+        //     }
+        // })
+        // .catch(error => {
+        //     console.log("error", error)
         })
         event.preventDefault();
     }
@@ -69,14 +70,7 @@ export default class Login extends Component {
                         value={this.state.password} 
                         onChange={this.handleChange}
                     />
-                    <label>confirm password:</label>
-                    <input 
-                        type="password" 
-                        name="password_confirmation" 
-                        value={this.state.password_confirmation} 
-                        onChange={this.handleChange}
-                    />
-                    <button type="submit">Sign Up</button>
+                    <button type="Login">Sign Up</button>
                </form>
             </div>
         )

@@ -11,9 +11,8 @@ export default class Home extends Component {
 
     handleSuccessfulAuth(data){
         // update parent component
+        this.props.handleLogin(data);
         this.props.history.push("/dashboard")
-        // I need to make that dashboard component
-        // or I need it to go somewhere else but I think dashboard is important
     }
 
     render() {

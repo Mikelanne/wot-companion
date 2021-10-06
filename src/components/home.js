@@ -12,6 +12,7 @@ export default class Home extends Component {
 
     handleSuccessfulAuth(data){
         // update parent component
+        console.log("handle successful auth", data)
         this.props.handleLogin(data);
         this.props.history.push("/dashboard")
     }

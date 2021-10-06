@@ -1,5 +1,5 @@
 import { Component } from "react";
-import axios from "axios"
+import axios from "axios";
 
 export default class Login extends Component {
 
@@ -11,16 +11,19 @@ export default class Login extends Component {
             username: "",
             password: "",
             loginErrors: ""
-        }
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event) => {
+    handleChange(event){
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit(event){
         axios.post("http://localhost:3001/sessions", {
             user: {
                 email: this.state.email,
@@ -29,7 +32,9 @@ export default class Login extends Component {
             }
         }, {withCredentials: true})
         .then(response => {
+            console.log("handle submit", response)
             if (response.data.logged_in) {
+                console.log("logged in in submit", response.data)
                 this.props.handleSuccessfulAuth(response.data);
             } else {
                console.log("didn't work") 
@@ -69,7 +74,7 @@ export default class Login extends Component {
                         value={this.state.password} 
                         onChange={this.handleChange}
                     />
-                    <button type="Login">Sign Up</button>
+                    <button type="submit">login</button>
                </form>
             </div>
         )

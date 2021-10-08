@@ -1,33 +1,14 @@
-import { Component } from "react"
-import Login from "./auth/Login";
-import Registration from "./auth/Registration"
+import React from 'react';
+import {Link} from 'react-router-dom'
 
-export default class Home extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
-    }
-
-    handleSuccessfulAuth(data){
-        // update parent component
-        console.log("handle successful auth", data)
-        this.props.handleLogin(data);
-        this.props.history.push("/dashboard")
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Welcome to your Wheel of Time Companion</h1>
-                <h3>This is your spoiler free companion to Robert Jordan's Wheel of Time series.</h3>
-                <h1>Status: {this.props.loggedInStatus}</h1>
-                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/> 
-                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-            </div>
-        )
-    }
+const Home = () => {
+    return (
+        <div>
+            <Link to='/login'>Log In</Link>
+            <br></br>
+            <Link to='/signup'>Sign Up</Link>
+        </div>
+    )
 }
 
-{/*Home screen will have a Welcome, a little info, a form to log in and a link directing you to the sign up route*/}
+export default Home

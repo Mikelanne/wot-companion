@@ -1,82 +1,64 @@
 import { Component } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 export default class Login extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-
         this.state = {
-            email: "",
-            username: "",
-            password: "",
-            loginErrors: ""
+            username: '',
+            email: '',
+            password: '',
+            errors: ''
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event){
+    handleChange = (event) => {
+        const {name, value} = event.target
         this.setState({
-            [event.target.name]: event.target.value
+            [name]: value
         })
-    }
+    };
 
-    handleSubmit(event){
-        axios.post("http://localhost:3001/sessions", {
-            user: {
-                email: this.state.email,
-                username: this.state.username,
-                password: this.state.password,
-            }
-        }, {withCredentials: true})
-        .then(response => {
-            console.log("handle submit", response)
-            if (response.data.logged_in) {
-                console.log("logged in in submit", response.data)
-                this.props.handleSuccessfulAuth(response.data);
-            } else {
-               console.log("didn't work") 
-                    // this will need to be edited to actually do something
-                    // use registration error part of the state
-            }
-        })
-        .catch(error => {
-            console.log("error", error)
-        })
-        event.preventDefault();
-    }
+    handleSubmit = (event) => {
+        event.preventDefault()
+    };
 
-
-    render(){
-        return(
+    render() {
+        const {username, email, password} = this.state
+        return (
             <div>
-               <form onSubmit={this.handleSubmit}>
-                   <label>email:</label>
-                   <input 
-                        type="email" 
-                        name="email" 
-                        value={this.state.email} 
+                <h1>Log In</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        placeholder="email"
+                        type="email"
+                        name="email"
+                        value={email}
                         onChange={this.handleChange}
                     />
-                   <label>username:</label>
-                   <input 
-                        type="text" 
-                        name="username" 
-                        value={this.state.username} 
+                    <input
+                        placeholder="username"
+                        type="text"
+                        name="username"
+                        value={username}
                         onChange={this.handleChange}
                     />
-                   <label>password:</label>
-                   <input 
-                        type="password" 
-                        name="password" 
-                        value={this.state.password} 
+                    <input
+                        placeholder="password"
+                        type="password"
+                        name="password"
+                        value={password}
                         onChange={this.handleChange}
                     />
-                    <button type="submit">login</button>
-               </form>
+                    <button type="submit">Log in</button>
+                    <div>
+                        or <Link to='/signup'>Sign Up</Link>
+                    </div>
+                </form>
             </div>
         )
     }
+
 }

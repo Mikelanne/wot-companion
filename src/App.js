@@ -19,6 +19,36 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount(){
+    this.loginStatus()
+  }
+
+  handleLogin = (data) => {
+    this.setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+
+  handleLogout = () => {
+    this.setState({
+      isLoggedIn: false,
+      user: {}
+    })
+  }
+
+  loginStatus = () => {
+    axios.get('http://localhost:3001/logged_in', {withCredentials: true})
+    .then(response => {
+      if (response.data.loggged_in) {
+        this.handleLogin(response)
+      } else {
+        this.handleLogout()
+      }
+    })
+    .catch(error => console.log('api errors', error))
+  }
+
   render() {
     return (
       <div>

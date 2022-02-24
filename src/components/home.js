@@ -4,7 +4,14 @@ import Registration from "./auth/Registration";
 export default class Home extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+
+        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this)
+    }
+
+    handleSuccessfulAuth(data){
+        this.props.handleLogin(data);
+        this.props.history.push("/dashboard");
     }
 
     render(){
@@ -12,7 +19,7 @@ export default class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <h2>Status: {this.props.loggedInStatus}</h2>
-                <Registration />
+                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
             </div>
         )
     }

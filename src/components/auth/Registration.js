@@ -18,10 +18,17 @@ export default class Registration extends Component {
     }
 
     handleSubmit(event) {
-        axios.post("https://localhost:3001/registrations", )
-
-
-
+        axios.post("http://localhost:3001/registrations", {
+            user: {
+                username: this.state.username,
+                password: this.state.password,
+                password_confirmation: this.state.password_confirmation
+            }
+        }, {withCredentials: true}).then(response => {
+            console.log("registration request response", response);
+        }).catch(error => {
+            console.log("registration error", error);
+        })
         event.preventDefault();
     }
 

@@ -17,6 +17,7 @@ export default class App extends Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   checkLoginstatus() {
@@ -41,6 +42,13 @@ export default class App extends Component {
     this.checkLoginstatus();
   }
 
+  handleLogout() {
+    this.setState ({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    })
+  }
+
   handleLogin(data) {
     this.setState({
       loggedInStatus: "LOGGED_IN",
@@ -56,7 +64,7 @@ export default class App extends Component {
               <Route 
               exact path={"/"} 
               render={props => (
-                <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+                <Home {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
               )}
               />
               <Route 

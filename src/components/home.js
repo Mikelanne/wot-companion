@@ -27,8 +27,8 @@ export default class Home extends Component {
     render(){
         return (
             <div>
-                <h1>Home</h1>
-                <h2>Status: {this.props.loggedInStatus}</h2>
+                <h1>Welcome to your Wheel of Time Companion!</h1>
+                <h4>The Wheel of Time Companion is your very own spoiler free companion. Use this companion while you embark on your journey through Robert Jordan's "The Wheel of Time" series and keep track of all the characters, locations, and groups you meet along the way.</h4>
                 <button onClick={() => this.handleLogoutClick()}>Logout</button>
                 <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
                 <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>

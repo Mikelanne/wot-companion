@@ -1,97 +1,69 @@
-// import { Component } from "react";
-// import axios from "axios";
-// import {Link} from 'react-router-dom'
+import { Component } from "react"
+import axios from "axios";
 
-// export default class Login extends Component {
+export default class Login extends Component {
 
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             username: '',
-//             password: '',
-//             errors: ''
-//         };
-//     }
+    constructor(props) {
+        super(props);
 
-//     handleChange = (event) => {
-//         const {name, value} = event.target
-//         this.setState({
-//             [name]: value
-//         })
-//     };
+        this.state = {
+            username: "",
+            password: "",
+            loginErrors: ""
+        }
 
-//     handleSubmit = (event) => {
-//         event.preventDefault()
-//         const {username, password} = this.state
-//         let user = {
-//             username: username,
-//             password: password
-//         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-//         axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
-//         .then(response => {
-//             if (response.data.logged_in){
-//                 this.props.handleLogin(response.data)
-//                 this.redirect()
-//             } else {
-//                 this.setState({
-//                     errors: response.data.errors
-//                 })
-//             }
-//         })
-//         .catch(error => console.log('api errors', error))
-//     };
+    handleSubmit(event) {
+        axios.post("http://localhost:3001/sessions", {
+            user: {
+                username: this.state.username,
+                password: this.state.password,
+            }
+        }, {withCredentials: true}).then(response => {
+            if (response.data.logged_in) {
+                this.props.handleSuccessfulAuth(response.data)}
+        }).catch(error => {
+            console.log("login error", error);
+        })
+        event.preventDefault();
+    }
 
-//     redirect = () => {
-//         this.props.history.push('/')
-//     }
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
 
-//     handleErrors = () => {
-//         return (
-//             <div>
-//                 <ul>
-//                     {this.state.errors.map(error => {
-//                         return <li key={error}>{error}</li>
-//                     })}
-//                 </ul>
-//             </div>
-//         )
-//     }
 
-//     render() {
-//         const {username, password} = this.state
-//         return (
-//             <div>
-//                 <h1>Log In</h1>
-//                 <form onSubmit={this.handleSubmit}>
-//                     <input
-//                         placeholder="email"
-//                         type="email"
-//                         name="email"
-//                         value={email}
-//                         onChange={this.handleChange}
-//                     />
-//                     <input
-//                         placeholder="username"
-//                         type="text"
-//                         name="username"
-//                         value={username}
-//                         onChange={this.handleChange}
-//                     />
-//                     <input
-//                         placeholder="password"
-//                         type="password"
-//                         name="password"
-//                         value={password}
-//                         onChange={this.handleChange}
-//                     />
-//                     <button type="submit">Log in</button>
-//                     <div>
-//                         or <Link to='/signup'>Sign Up</Link>
-//                     </div>
-//                 </form>
-//             </div>
-//         )
-//     }
+    render(){
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input 
+                        type="username" 
+                        name="username" 
+                        placeholder="Username" 
+                        value={this.state.username} 
+                        onChange={this.handleChange} 
+                        required
+                    />
 
-// }
+                    <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Password" 
+                        value={this.state.password} 
+                        onChange={this.handleChange} 
+                        required
+                    />
+
+                    <button type="submit">Login</button>
+
+                </form>
+            </div>
+        )
+    }
+}

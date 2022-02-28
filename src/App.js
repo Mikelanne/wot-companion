@@ -1,7 +1,7 @@
 import './App.css'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import axios from 'axios'
-import Home from "./components/home"
+import Home from "./components/Home"
 import Dashboard from './components/Dashboard'
 import { Component } from 'react';
 

@@ -22,11 +22,16 @@ export default class Dashboard extends Component  {
         const characterArray = data.data
         const character = characterArray.map(guy => (guy.attributes.name))
         console.log(character)
-        }
-
-    componentDidMount(){
-        this.getCharacters()
+        //TODO:
+            // need to get the characters related to the signed in user only
+            // then provide a link on the dashboard / navbar to get to the user's characters
+            // should not happen on component did mount because that happens too often
+            // this should probably be in the characters component.
     }
+
+    // componentDidMount(){
+    //     this.getCharacters()
+    // }
 
     render() {return (
         <div>

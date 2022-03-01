@@ -10,20 +10,20 @@ export default class NavBar extends Component {
 
     render(){
 
-        const user = this.props.user
-        let dashboard;
-        if (user) {
-            dashboard = <Nav.Link href="/dashboard">User Dashboard</Nav.Link>
-        } else {
-            dashboard = ""
-        }
+        // const user = this.props.user
+        // let dashboard;
+        // if (user) {
+        //     dashboard = <Nav.Link href="/dashboard">User Dashboard</Nav.Link>
+        // } else {
+        //     dashboard = ""
+        // }
 
 
         return (
             <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                        <Navbar.Brand href="/">
+                        <Navbar.Brand>
                         <img
                             src="http://jcsalomon.github.io/wot-chapter-icons/Wheel-icon.svg"
                             width="80"
@@ -36,7 +36,7 @@ export default class NavBar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        {dashboard}
+                        <Nav.Link href="/dashboard">User Dashboard</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

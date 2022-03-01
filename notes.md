@@ -47,3 +47,4 @@ CURRENT NOTES AND TO DO
 [] Only able to click on "user dashboard" when user is logged in // only visible when User is Logged in (maybe remove Nav bar from homepage)
 [] Move the sign up and login forms to their own page????? Might not matter that much actually.
 [] when the user logs in and is redirected to dashboard, the username doesn't appear until you refresh the page.
+[] conditional rendering for the user dashboard in the navbar worked at first but once you moved pages, it went away. Not staying quite right. This is what a store is for typically. 

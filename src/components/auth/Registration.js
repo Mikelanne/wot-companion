@@ -42,7 +42,6 @@ export default class Registration extends Component {
 
     render(){
         return (
-            <div>
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="username" 
@@ -71,10 +70,9 @@ export default class Registration extends Component {
                         required
                     />
 
-                    <button type="submit">Register</button>
+                    <button type="submit">Sign Up</button>
 
                 </form>
-            </div>
         )
     }
 }

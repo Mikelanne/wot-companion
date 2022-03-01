@@ -28,12 +28,20 @@ export default class Home extends Component {
     render(){
         return (
             <div>
-                <NavBar />
-                <h1>Welcome to your Wheel of Time Companion!</h1>
+                <NavBar handleLogoutClick={this.handleLogoutClick}/>
+                <h1>Welcome to Your Wheel of Time Companion!</h1>
                 <h4>The Wheel of Time Companion is your very own spoiler free companion. Use this companion while you embark on your journey through Robert Jordan's "The Wheel of Time" series and keep track of all the characters, locations, and groups you meet along the way.</h4>
-                {/* <button onClick={() => this.handleLogoutClick()}>Logout</button>
-                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/> */}
+                <h5>So, whats it gonna be?</h5> <br/>
+                <p>
+                    Sign up to join Moraine and Lan. <br/>
+                    <Registration handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+                </p>
+                    Already traveling? Login to return to camp. <br/>
+                    <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+                <p><br/>
+                <button onClick={() => this.handleLogoutClick()}>Logout</button>
+                {/* need to figure out how to move this to the user dashboard or only when a user is logged in*/}
+                </p>
             </div>
         )
     }

@@ -1,13 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { Component } from "react";
+import NavBar from "./Navbar";
 
 export default class Dashboard extends Component  {
-
-    constructor(props) {
-        super(props);
-
-    }
 
     getCharacters() {
         axios.get('http://localhost:3001/characters')
@@ -35,6 +31,7 @@ export default class Dashboard extends Component  {
 
     render() {return (
         <div>
+            <NavBar />
             <h1>Welcome Back To The Adventure, {this.props.user.username}!</h1>
             <h1>Status: {this.props.loggedInStatus}</h1>
         </div>

@@ -1,7 +1,5 @@
 import Nav from "react-bootstrap/nav"
-import {Link} from 'react-router-dom'
-import Button from "react-bootstrap/button"
-import { Container, Item, Navbar, } from "react-bootstrap"
+import { Container, Navbar } from "react-bootstrap"
 
 const NavBar = () => {
 

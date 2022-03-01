@@ -7,30 +7,25 @@ const NavBar = () => {
 
     return (
         <div>
-        {/* <Navbar>
+        <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+                    <Navbar.Brand href="/">
+                    <img
+                        src="http://jcsalomon.github.io/wot-chapter-icons/Wheel-icon.svg"
+                        width="80"
+                        height="80"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    />
+                    </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/dashboard">User Dashboard</Nav.Link>
+                </Nav>
+                </Navbar.Collapse>
             </Container>
-        </Navbar>
-        <br />
-        <Navbar bg="light">
-            <Container>
-            <Navbar.Brand>Brand text</Navbar.Brand>
-            </Container>
-        </Navbar> */}
-      
-        <Navbar>
-        <Container>
-            <Navbar.Brand href="#home">
-            <img
-                src="http://jcsalomon.github.io/wot-chapter-icons/Wheel-icon.svg"
-                width="80"
-                height="80"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-            />
-            </Navbar.Brand>
-        </Container>
         </Navbar>
         </div>
     )

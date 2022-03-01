@@ -4,6 +4,7 @@ import axios from 'axios'
 import Home from "./components/Home"
 import Dashboard from './components/Dashboard'
 import { Component } from 'react';
+import Registration from './components/auth/Registration'
 
 
 export default class App extends Component {
@@ -70,7 +71,13 @@ export default class App extends Component {
               <Route 
               exact path={"/dashboard"} 
               render={props => (
-                <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} user={this.state.user} />
+                <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} user={this.state.user} handleLogout={this.handleLogout} />
+              )}
+              />
+              <Route 
+              exact path={"/registration"} 
+              render={props => (
+                <Registration {...props} loggedInStatus={this.state.loggedInStatus} user={this.state.user} />
               )}
               />
           </Switch>

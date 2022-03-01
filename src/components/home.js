@@ -2,7 +2,7 @@ import { Component } from "react";
 import Registration from "./auth/Registration";
 import Login from "./auth/Login";
 import axios from "axios";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 
 export default class Home extends Component {
 
@@ -20,7 +20,7 @@ export default class Home extends Component {
     render(){
         return (
             <div>
-                <NavBar handleLogoutClick={this.handleLogoutClick}/>
+                <NavBar />
                 <h1>Welcome to Your Wheel of Time Companion!</h1>
                 <h4>The Wheel of Time Companion is your very own spoiler free companion. Use this companion while you embark on your journey through Robert Jordan's "The Wheel of Time" series and keep track of all the characters, locations, and groups you meet along the way.</h4>
                 <h5>So, whats it gonna be?</h5> <br/>
@@ -28,9 +28,6 @@ export default class Home extends Component {
                     <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
                     Already traveling? Login to return to camp. <br/>
                     <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-                <p><br/>
-                {/* need to figure out how to move this to the user dashboard or only when a user is logged in*/}
-                </p>
             </div>
         )
     }

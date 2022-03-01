@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Component } from "react";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 
 export default class Dashboard extends Component  {
 
@@ -42,9 +42,10 @@ export default class Dashboard extends Component  {
         });
     }
 
-    render() {return (
+    render() {
+        return (
         <div>
-            <NavBar />
+            <NavBar user={this.props.user}/>
             <h1>Welcome Back To The Adventure, {this.props.user.username}!</h1>
             <h1>Status: {this.props.loggedInStatus}</h1>
             <button onClick={() => this.handleLogoutClick()}>Logout</button>

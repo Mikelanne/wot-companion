@@ -48,3 +48,4 @@ CURRENT NOTES AND TO DO
     [] conditional rendering for the user dashboard in the navbar worked at first but once you moved pages, it went away. Not staying quite right. This is what a store is for typically. 
 [] Move the sign up and login forms to their own page????? Might not matter that much actually.
 [] when the user logs in and is redirected to dashboard, the username doesn't appear until you refresh the page.
+[] In the store, set state to have current user.
